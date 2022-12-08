@@ -30,4 +30,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/helloworld:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/learnjwt:latest
