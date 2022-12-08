@@ -15,8 +15,8 @@ services:
     volumes:
       - mysqldb:/var/lib/mysql
   api:
-    container_name: api
-    image: spring-boot-api-tutorial-img
+    container_name: learnjwt
+    image: learnjwt
     build:
       context: ./
       dockerfile: Dockerfile
