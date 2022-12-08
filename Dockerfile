@@ -4,7 +4,7 @@ FROM maven:3.8.3-openjdk-17 as build
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 # Compile and package the application to an executable JAR
-RUN mvn package 
+RUN mvn clean install -DskipTests
 
 # For Java 17, 
 FROM openjdk:17-alpine
