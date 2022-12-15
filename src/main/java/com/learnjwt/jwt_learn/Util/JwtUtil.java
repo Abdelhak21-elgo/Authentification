@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import org.apache.catalina.startup.RealmRuleSet;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -31,7 +30,7 @@ public class JwtUtil {
     private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser().setSigningKey(SECRET_kEY).parseClaimsJws(token).getBody();
     }
-
+    
     public Boolean validateToken(String token, UserDetails userDetails) {
         String userName = getUserNameFromToken(token);
         return (userName.equals(userDetails.getUsername()) && !isTokenExpired(token));

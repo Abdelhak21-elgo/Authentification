@@ -11,13 +11,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import com.learnjwt.jwt_learn.Service.JwtService;
 
 @Configuration
 @EnableWebSecurity
@@ -41,10 +38,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors();
-        httpSecurity.csrf().disable().authorizeRequests().antMatchers("/authenticate").permitAll()
-                .antMatchers(HttpHeaders.ALLOW).permitAll().anyRequest().authenticated()
-                .and().exceptionHandling().authenticationEntryPoint(jwtAuthentificationEntryPoint).and()
+        httpSecurity.csrf().disable().authorizeRequests().antMatchers("/authenticate","/regestNewUser").permitAll()
+                .antMatchers(HttpHeaders.ALLOW).permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .exceptionHandling().authenticationEntryPoint(jwtAuthentificationEntryPoint)
+                .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 

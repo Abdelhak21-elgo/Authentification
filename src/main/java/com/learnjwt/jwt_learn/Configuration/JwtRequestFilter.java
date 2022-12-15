@@ -2,7 +2,6 @@ package com.learnjwt.jwt_learn.Configuration;
 
 import java.io.IOException;
 
-import javax.persistence.Access;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -57,7 +56,8 @@ public class JwtRequestFilter extends OncePerRequestFilter{
            UserDetails userDetails= jwtService.loadUserByUsername(userName);
 
            if(jwtUtil.validateToken(jwtToken,userDetails)){
-              UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+              UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, 
+              null, userDetails.getAuthorities());
               usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
               SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);

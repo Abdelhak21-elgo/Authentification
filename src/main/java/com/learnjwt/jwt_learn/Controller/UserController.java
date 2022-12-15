@@ -4,10 +4,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.learnjwt.jwt_learn.Entity.User;
 import com.learnjwt.jwt_learn.Service.UserService;
@@ -21,7 +18,7 @@ public class UserController {
     public void initRolesAndUsers(){
         userservice.initRoleandUser();
     }
-
+    
     @PostMapping({"/regestNewUser"})
     public User regestNewUser(@RequestBody User user){
         return userservice.registerNewUser(user);
