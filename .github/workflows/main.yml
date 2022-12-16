@@ -1,0 +1,12 @@
+name: main CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+jobs:
+  frontworkflow:
+    uses: Abdelhak21-elgo/Authentification/jwt_front/.github/workflows/FrontCI.yml@v1
+  backworkflow:
+    uses: Abdelhak21-elgo/Authentification/jwt_learn/.github/workflows/javamvenci.yml@v1
