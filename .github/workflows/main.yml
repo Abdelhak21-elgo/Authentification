@@ -7,6 +7,6 @@ on:
     branches: [ "master" ]
 jobs:
   frontworkflow:
-    uses: Abdelhak21-elgo/Authentification/jwt_front/.github/workflows/FrontCI.yml@v1
+    uses: ./jwt_front/.github/workflows/FrontCI.yml
   backworkflow:
-    uses: Abdelhak21-elgo/Authentification/jwt_learn/.github/workflows/javamvenci.yml@v1
+    uses: ./jwt_learn/.github/workflows/javamvenci.yml
