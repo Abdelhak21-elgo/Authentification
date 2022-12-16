@@ -7,6 +7,6 @@ on:
     branches: [ "master" ]
 jobs:
   frontworkflow:
-    uses: ./jwt_front/.github/workflows/FrontCI.yml
+    uses: ./jwt_front/.github/workflows/FrontCI.yml@v1
   backworkflow:
-    uses: ./jwt_learn/.github/workflows/javamvenci.yml
+    uses: ./jwt_learn/.github/workflows/javamvenci.yml@v1
