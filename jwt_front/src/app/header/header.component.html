@@ -1,4 +1,19 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<mat-toolbar color="primary">
+  <span>
+    E-commerce Application
+  </span>
+
+  <span class="space-button"></span>
+  <button *ngIf="!IsLoggedIn()" mat-raised-button color="primary" routerLink="/Login">
+    Login
+  </button>
+  <button *ngIf="IsLoggedIn()" mat-raised-button color="warn" (click) = "logout()">
+    Logout
+  </button>
+</mat-toolbar>
+
+
+<!-- <nav class="navbar navbar-expand-sm navbar-dark bg-dark"> 
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Jwt-Learn Front</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -19,9 +34,9 @@
         </li>
       </ul>
       <button *ngIf="!IsLoggedIn()" type="button" class="btn btn-success" routerLink="/Login" >Login</button>
-      <button *ngIf="IsLoggedIn()"type="button" class="btn btn-danger" (click) = "logout()">Logout</button>
+      <button *ngIf="IsLoggedIn()" type="button" class="btn btn-danger" (click) = "logout()">Logout</button>
     </div>
   </div>
   
-</nav>
+</nav>-->
     
