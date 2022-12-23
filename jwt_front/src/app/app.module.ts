@@ -20,6 +20,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { AddProductComponent } from './add-product/add-product.component';
 
 
 
@@ -31,7 +32,8 @@ import {MatInputModule} from '@angular/material/input';
     UserComponent,
     LoginComponent,
     HeaderComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
