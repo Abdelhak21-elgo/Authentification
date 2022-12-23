@@ -10,7 +10,7 @@ export class ProductService {
 
   constructor(private httpclient: HttpClient) { }
 
-  public addProduct(product : Product){
+  public addProduct(product : FormData){
     return this.httpclient.post<Product>(environment.apipathback+"/addnewProduct", product);
   }
 }

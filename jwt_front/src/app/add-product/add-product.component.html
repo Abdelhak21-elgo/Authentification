@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <div class="card text-center" style="padding: 20px; color: green;">
+    <div class="card text-center" style="padding: 20px;">
         <div class="row">
             <div class="col-6">
                 <form #productForm ="ngForm" (ngSubmit)="addProduct(productForm)">
@@ -34,7 +34,9 @@
                 </form>
             </div>
             <div class="col-6">
-                Image area
+                <input type="file" multiple value="select" #selectFile
+                    (change)="onFileSelected($event)"
+                >
             </div>
         </div>
 
