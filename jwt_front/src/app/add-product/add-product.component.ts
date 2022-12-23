@@ -53,7 +53,6 @@ export class AddProductComponent implements OnInit {
         product.productImages[i].file.name
       );
     }
-
     return formData;
   }
 
@@ -66,7 +65,6 @@ export class AddProductComponent implements OnInit {
       }
       this.product.productImages.push(fileHandel);
     }
-
   }
 
 }
