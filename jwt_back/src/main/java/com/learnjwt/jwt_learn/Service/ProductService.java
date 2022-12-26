@@ -1,5 +1,7 @@
 package com.learnjwt.jwt_learn.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,9 @@ public class ProductService {
 
     public Product addnewProduct(Product product){
         return productDao.save(product);
+    }
+
+    public List<Product> getAllProducts(){
+        return (List<Product>)productDao.findAll();
     }
 }
