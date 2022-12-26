@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,7 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping(value = { "/addnewProduct" }, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    @PreAuthorize("hasRole('Admin')")
     public Product addProduct(@RequestPart("product") Product product,
             @RequestPart("imagefile") MultipartFile[] file) {
         // return productService.addnewProduct(product);
