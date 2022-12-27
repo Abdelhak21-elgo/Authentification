@@ -9,5 +9,5 @@ RUN npm run build -- --outputPath=./dist/out --configuration $configuration
 
 ### STAGE 2 : RUN ### 
 FROM nginx:1.17-alpine
-COPY --from=build /usr/src/app/dist/out /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /usr/src/app/dist/out /usr/share/nginx/html
