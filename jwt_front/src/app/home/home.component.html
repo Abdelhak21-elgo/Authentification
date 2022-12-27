@@ -1,9 +1,9 @@
 <div class="container mt-5">
     <mat-grid-list cols="4" rowHeight="2:3" gutterSize="10">
         <mat-grid-tile *ngFor=" let p of productDetails">
-            <div class="row home-page-product_images">
-                <div class="img-container">
-                    <img class="img-fluid" [src]="p.productImages[0].url">
+            <div class="row p-5">
+                <div class="img-container ">
+                    <img class="home-page-product_images" [src]="p.productImages[0].url">
                 </div>
                 <div class="mt-3">
                     <p><b>{{p.productName}}</b></p>

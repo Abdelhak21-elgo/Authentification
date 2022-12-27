@@ -6,19 +6,16 @@ mat-grid-tile {
 .home-page-product_images{
     max-width: 90%;
     max-height: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
 }
 
 .img-container{
-    display:flex;
-    /* background-color: #eee; */
-    width: auto;
-    height: 30%;
-    max-height: 50%;
-    justify-content: center;
+    position: relative;
+    height: 250px;
 }
-.img-fluid{
-    width: auto;
-    height: 100%;
-}
+
