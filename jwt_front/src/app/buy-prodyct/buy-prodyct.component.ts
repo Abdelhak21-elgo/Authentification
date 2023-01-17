@@ -89,7 +89,7 @@ export class BuyProdyctComponent implements OnInit {
       (productQuantity) => {
         const price = this.productDetails.filter(
           (product) => product.productId === productQuantity.prodcutId
-        )[0].productCurentPrice;
+        )[0].productDiscountedPrice;
         grandTotal += price * productQuantity.quantity;
       }
     );
