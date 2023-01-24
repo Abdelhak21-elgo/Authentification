@@ -62,10 +62,6 @@ public class ProductController {
         return productService.getAllProducts(pageNumber);
     }
 
-    @GetMapping({"/getAllproduct"})
-    public List<Product> getAllProduct(){
-        return productService.getAllProduct();
-    }
 
     
     @GetMapping({"/getProductdetailsById/{productId}"})

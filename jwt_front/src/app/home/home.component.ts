@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-
+  showButtonLoad = false;
   pageNumber : number =0;
   productDetails: Product[] = [];
   
@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit {
     .subscribe(
       (response: Product[]) => {
         // console.log(response);
+        if(response.length == 5) {this.showButtonLoad = true;} else {this.showButtonLoad = false;}
+        response.forEach(p => this.productDetails.push(p));
         this.productDetails = response;
       },
       (error: HttpErrorResponse) => {

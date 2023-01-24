@@ -21,10 +21,6 @@ export class ProductService {
     return this.httpclient.get<Product[]>(this.apipath+"/getAllproducts?pageNumber="+pageNumber);
   }
 
-  public getAllProduct(){
-    return this.httpclient.get<Product[]>(this.apipath+"/getAllproduct");
-  }
-
   public deletProductDetails(productId : number){
     return this.httpclient.delete(this.apipath+"/deletProducrDetails/"+productId);
   }
