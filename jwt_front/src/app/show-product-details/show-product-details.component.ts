@@ -25,7 +25,7 @@ export class ShowProductDetailsComponent implements OnInit {
   }
 
   public getAllProducts() {
-    this.productService.getAllProducts()
+    this.productService.getAllProduct()
       .pipe(
         map((x: Product[], i) => x.map((product: Product) => this.imageprocessingService.createImafes(product)))
       )

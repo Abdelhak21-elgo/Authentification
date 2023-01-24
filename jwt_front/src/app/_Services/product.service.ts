@@ -17,8 +17,12 @@ export class ProductService {
     return this.httpclient.post<Product>(this.apipath+"/addnewProduct", product);
   }
 
-  public getAllProducts(){
-    return this.httpclient.get<Product[]>(this.apipath+"/getAllproducts");
+  public getAllProducts(pageNumber:number){
+    return this.httpclient.get<Product[]>(this.apipath+"/getAllproducts?pageNumber="+pageNumber);
+  }
+
+  public getAllProduct(){
+    return this.httpclient.get<Product[]>(this.apipath+"/getAllproduct");
   }
 
   public deletProductDetails(productId : number){
