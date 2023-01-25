@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+
   showButtonLoad = false;
   pageNumber : number =0;
   productDetails: Product[] = [];
@@ -23,14 +24,20 @@ export class HomeComponent implements OnInit {
     this.getAllProduct();
   }
 
-  public getAllProduct(){
-    this.productService.getAllProducts(this.pageNumber).pipe(
+  searchByKeyWord(searchkeyword: any) {
+    this.pageNumber = 0;
+    this.productDetails = [];
+    this.getAllProduct(searchkeyword);
+    }
+
+  public getAllProduct(searchKey : string = ""){
+    this.productService.getAllProducts(this.pageNumber,searchKey).pipe(
       map((x: Product[], i) => x.map((product: Product) => this.imageprocessingService.createImafes(product)))
     )
     .subscribe(
       (response: Product[]) => {
         // console.log(response);
-        if(response.length == 5) {this.showButtonLoad = true;} else {this.showButtonLoad = false;}
+        if(response.length == 4) {this.showButtonLoad = true;} else {this.showButtonLoad = false;}
         response.forEach(p => this.productDetails.push(p));
         this.productDetails = response;
       },
@@ -45,9 +52,11 @@ export class HomeComponent implements OnInit {
   }
 
   loadMoreProductI(incrementBy: number) {
-    if(this.pageNumber >= 10) return ;
-    this.pageNumber+=incrementBy;
-    this.getAllProduct();
+    if(this.pageNumber < this.productDetails.length) 
+    {this.pageNumber+=incrementBy;
+    this.getAllProduct();}else{
+      return ;
+    }
     }
 
     loadMoreProductD(incrementBy: number) {
